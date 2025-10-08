@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Al-Mutasim — Code & Create</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+  <style>
+    :root{
+      --grad:linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --dark:#1f1f1f;
+      --light:#f8f9fa;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif;}
+    body{background:var(--light);color:var(--dark);scroll-behavior:smooth;}
+    a{color:#667eea;text-decoration:none;}
+    header{
+      height:100vh;
+      background:var(--grad);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      color:#fff;
+      position:relative;
+      overflow:hidden;
+    }
+    header::after{ /* floating shapes */
+      content:"";
+      position:absolute;
+      width:200%;height:200%;
+      background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff10" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+      animation:wave 18s linear infinite;
+    }
+    @keyframes wave{0%{transform:translateX(0);}50%{transform:translateX(-50%);}100%{transform:translateX(0);}}
+    .btn{
+      display:inline-block;margin-top:1rem;padding:.75rem 1.5rem;background:#fff;color:#667eea;border-radius:30px;font-weight:600;transition:.3s;
+    }
+    .btn:hover{transform:translateY(-3px);box-shadow:0 10px 20px rgba(0,0,0,.2);}
+    section{padding:4rem 1rem;max-width:1000px;margin:auto;}
+    h2{text-align:center;margin-bottom:2rem;font-size:2rem;}
+    .glass{
+      background:rgba(255,255,255,.7);
+      backdrop-filter:blur(10px);
+      border:1px solid rgba(255,255,255,.3);
+      border-radius:15px;
+      padding:1.5rem;
+      margin:1rem 0;
+      transition:.3s;
+    }
+    .glass:hover{transform:translateY(-5px);}
+    .grid{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));}
+    .tag{display:inline-block;background:#e0e7ff;color:#4338ca;padding:.2rem .6rem;border-radius:999px;font-size:.75rem;margin:.1rem;}
+    footer{text-align:center;padding:2rem 0;font-size:.8rem;color:#777;}
+    /* skills bar */
+    .skillbar{background:#e0e7ff;border-radius:5px;height:8px;margin:.25rem 0 1rem;}
+    .skill{height:8px;border-radius:5px;background:var(--grad);}
+  </style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>Al-Mutasim Al-Hadhrami</h1>
+    <p>Senior Full-Stack & Mobile Engineer | Muscat, Oman</p>
+    <a class="btn" href="#projects">See My Work</a>
+    <a class="btn" style="margin-left:.5rem;background:transparent;color:#fff;border:2px solid #fff;" href="https://www.linkedin.com/in/almutasim" target="_blank">LinkedIn</a>
+    <a class="btn" style="margin-left:.5rem;background:transparent;color:#fff;border:2px solid #fff;" href="https://github.com/Almutasim" target="_blank">GitHub</a>
+  </div>
+</header>
+
+<section id="about">
+  <h2>About Me</h2>
+  <p>I turn caffeine into scalable web & mobile products. Over 6 years I’ve launched e-commerce platforms processing 5 k+ daily orders, ERP systems that erase paperwork, and Flutter apps with 4.7★ ratings. My sweet spot is end-to-end delivery: white-board → deploy → monitor, while mentoring juniors and automating everything along the way.</p>
+</section>
+
+<section id="skills">
+  <h2>Skills & Tools</h2>
+  <div class="grid">
+    <div>
+      <h3>Frontend</h3>
+      <span class="tag">Angular</span><span class="tag">React</span><span class="tag">Ionic</span><span class="tag">TypeScript</span>
+      <div class="skillbar"><div class="skill" style="width:90%"></div></div>
+    </div>
+    <div>
+      <h3>Backend</h3>
+      <span class="tag">Node</span><span class="tag">PHP/Laravel</span><span class="tag">C#</span><span class="tag">Python</span>
+      <div class="skillbar"><div class="skill" style="width:85%"></div></div>
+    </div>
+    <div>
+      <h3>Mobile</h3>
+      <span class="tag">Flutter</span><span class="tag">Provider</span><span class="tag">Dio</span><span class="tag">Firebase</span>
+      <div class="skillbar"><div class="skill" style="width:88%"></div></div>
+    </div>
+    <div>
+      <h3>DevOps & Data</h3>
+      <span class="tag">Docker</span><span class="tag">Jenkins</span><span class="tag">Prometheus</span><span class="tag">Grafana</span>
+      <div class="skillbar"><div class="skill" style="width:75%"></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Featured Projects</h2>
+  <div class="grid">
+    <div class="glass">
+      <h3>Ooredoo Oman E-Shop</h3>
+      <p>National telecom digital store. WordPress + Magento 2 + GraphQL, 5 k daily check-outs, zero-downtime during Ramadan peaks.</p>
+      <span class="tag">WordPress</span><span class="tag">Magento</span><span class="tag">GraphQL</span>
+      <br><a href="https://github.com/Almutasim/ooredoo-eshop" target="_blank">GitHub →</a>
+    </div>
+    <div class="glass">
+      <h3>Akeed Food-Delivery Ops</h3>
+      <p>Emergency COVID squad. Added Prometheus/Grafana monitoring + Firebase analytics; crash downtime ↓ 60 %.</p>
+      <span class="tag">Laravel</span><span class="tag">Flutter</span><span class="tag">Grafana</span>
+      <br><a href="https://github.com/Almutasim/akeed-ops" target="_blank">GitHub →</a>
+    </div>
+    <div class="glass">
+      <h3>Traffic-Warden Flutter App</h3>
+      <p>Real-time fines with OCR. 4.7★ rating, 10 k+ installs, deployed to both stores.</p>
+      <span class="tag">Flutter</span><span class="tag">OCR</span><span class="tag">Provider</span>
+      <br><a href="https://play.google.com/store/apps/details?id=om.gov.traffic" target="_blank">Play Store →</a>
+    </div>
+    <div class="glass">
+      <h3>Mundana Travel Platform</h3>
+      <p>Led 3 devs, built 6 custom WP plugins, integrated 3-party APIs; Lighthouse performance ↑ 40 %.</p>
+      <span class="tag">WordPress</span><span class="tag">PHP</span><span class="tag">REST</span>
+      <br><a href="https://mundana.com" target="_blank">Live Site →</a>
+    </div>
+  </div>
+</section>
+
+<section id="career">
+  <h2>Career Highlights</h2>
+  <ul>
+    <li><strong>Al-Maha Petroleum</strong> – IT Developer (2024-now) &nbsp;|&nbsp; Building customer portal & loyalty modules; manual tickets ↓ 25 %.</li>
+    <li><strong>PhazeRo</strong> – Full-Stack Engineer (2019-2024) &nbsp;|&nbsp; Delivered 10+ production apps, mentored 4 juniors, owned CI/CD.</li>
+    <li><strong>World Web IT</strong> – Software Developer (2018-2019) &nbsp;|&nbsp; ERP + document management for 50-user retail chain.</li>
+  </ul>
+</section>
+
+<section id="contact">
+  <h2>Let’s Connect</h2>
+  <p>Currently open to freelance & full-time opportunities. Drop me a message on LinkedIn or open an issue on GitHub.</p>
+  <a class="btn" href="https://www.linkedin.com/in/al-mu-tasim-al-hadhrami-675556115" target="_blank">Message on LinkedIn</a>
+  <a class="btn" style="margin-left:.5rem;" href="https://github.com/Almutasim" target="_blank">View GitHub</a>
+</section>
+
+<footer>
+  &copy; <span id="yr"></span> Al-Mutasim Al-Hadhrami. Built with vanilla HTML/CSS & ☕.
+</footer>
+
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body>
+</html>
