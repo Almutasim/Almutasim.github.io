@@ -14,17 +14,40 @@
     *{box-sizing:border-box;margin:0;padding:0;font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif;}
     body{background:var(--light);color:var(--dark);scroll-behavior:smooth;}
     a{color:#667eea;text-decoration:none;}
-    header{
-      height:100vh;
-      background:var(--grad);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      color:#fff;
-      position:relative;
-      overflow:hidden;
-    }
+ /* ---------- HERO SECTION ---------- */
+header{
+  height:100vh;
+  background:linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#fff;
+  position:relative;
+  overflow:hidden;
+}
+.hero{z-index:2;}
+.tagline{font-size:1.2rem;margin:.5rem 0 2rem;}
+
+/* ---------- GLOW BUTTONS ---------- */
+.hero-nav{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;}
+.glow-btn{
+  padding:.8rem 1.8rem;
+  background:rgba(255,255,255,.15);
+  border:2px solid rgba(255,255,255,.3);
+  border-radius:30px;
+  color:#fff;
+  font-weight:600;
+  backdrop-filter:blur(10px);
+  transition:.3s ease;
+  cursor:pointer;
+}
+.glow-btn:hover{
+  background:#fff;
+  color:#667eea;
+  box-shadow:0 0 20px rgba(255,255,255,.6);
+  transform:translateY(-4px);
+}
     header::after{ /* floating shapes */
       content:"";
       position:absolute;
@@ -55,17 +78,91 @@
     /* skills bar */
     .skillbar{background:#e0e7ff;border-radius:5px;height:8px;margin:.25rem 0 1rem;}
     .skill{height:8px;border-radius:5px;background:var(--grad);}
+/* ---------- GLOBAL HELPERS ---------- */
+.section-padding{padding:5rem 1rem;}
+.container{max-width:1000px;margin:auto;}
+.center{text-align:center;}
+.bg-gradient{background:var(--grad);color:#fff;}
+
+/* ---------- CAREER TIMELINE ---------- */
+.timeline{position:relative;padding:2rem 0;}
+.timeline::before{ /* vertical line */
+  content:"";
+  position:absolute;
+  left:1.2rem;top:0;bottom:0;width:3px;
+  background:rgba(102,126,234,.3);
+}
+.timeline-item{
+  display:flex;
+  margin-bottom:2rem;
+  align-items:flex-start;
+}
+.timeline-item .date{
+  flex:0 0 110px;
+  font-weight:700;
+  color:#667eea;
+  background:#fff;
+  border:2px solid #e0e7ff;
+  border-radius:20px;
+  padding:.3rem .8rem;
+  text-align:center;
+  margin-right:1.5rem;
+  position:relative;
+  z-index:1;
+}
+.timeline-item .content{
+  flex:1;
+  background:#fff;
+  border-left:4px solid #667eea;
+  padding:1rem 1.5rem;
+  border-radius:8px;
+  box-shadow:0 5px 15px rgba(0,0,0,.05);
+  transition:.3s;
+}
+.timeline-item .content:hover{transform:translateY(-4px);}
+.timeline-item h3{margin:.2em 0 .5em;font-size:1.1rem;}
+.timeline-item span{font-weight:400;color:#555;}
+
+/* ---------- CONTACT SECTION ---------- */
+.contact-box{background:rgba(255,255,255,.1);backdrop-filter:blur(10px);border-radius:15px;padding:2.5rem;}
+.contact-grid{display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+.contact-card{background:#fff;color:#222;border-radius:12px;padding:1.5rem;box-shadow:0 8px 20px rgba(0,0,0,.08);}
+.section-title-light{color:#fff;margin-bottom:1rem;}
+.link-chip{
+  display:flex;align-items:center;gap:.5rem;
+  padding:.6rem 1rem;margin:.5rem 0;
+  border-radius:30px;font-weight:600;
+  transition:.3s;
+}
+.linkedin{background:#0a66c2;color:#fff;}
+.github{background:#24292f;color:#fff;}
+.email{background:#ea4335;color:#fff;}
+.link-chip:hover{opacity:.85;transform:translateX(4px);}
+.contact-card input,.contact-card textarea{
+  width:100%;padding:.7rem 1rem;margin:.5rem 0;
+  border:1px solid #ddd;border-radius:6px;font-size:.95rem;
+}
+.submit-btn{
+  width:100%;padding:.8rem;background:var(--grad);color:#fff;
+  border:none;border-radius:30px;font-weight:600;cursor:pointer;
+  transition:.3s;
+}
+.submit-btn:hover{transform:translateY(-2px);box-shadow:0 5px 15px rgba(102,126,234,.4);}
   </style>
 </head>
 <body>
 
+<!-- 🎨 NEW HEADER -->
 <header>
-  <div>
+  <div class="hero">
     <h1>Al-Mutasim Al-Hadhrami</h1>
-    <p>Senior Full-Stack & Mobile Engineer | Muscat, Oman</p>
-    <a class="btn" href="#projects">See My Work</a>
-    <a class="btn" style="margin-left:.5rem;background:transparent;color:#fff;border:2px solid #fff;" href="https://www.linkedin.com/in/almutasim" target="_blank">LinkedIn</a>
-    <a class="btn" style="margin-left:.5rem;background:transparent;color:#fff;border:2px solid #fff;" href="https://github.com/Almutasim" target="_blank">GitHub</a>
+    <p class="tagline">Senior Full-Stack & Mobile Engineer | Muscat, Oman</p>
+
+    <nav class="hero-nav">
+      <a href="#projects" class="glow-btn">See My Work</a>
+      <a href="www.linkedin.com/in/al-mu-tasim-al-hadhrami-675556115" target="_blank" rel="noopener" class="glow-btn">LinkedIn</a>
+      <a href="https://github.com/Almutasim" target="_blank" rel="noopener" class="glow-btn">GitHub</a>
+    </nav>
   </div>
 </header>
 
@@ -130,20 +227,74 @@
   </div>
 </section>
 
-<section id="career">
-  <h2>Career Highlights</h2>
-  <ul>
-    <li><strong>Al-Maha Petroleum</strong> – IT Developer (2024-now) &nbsp;|&nbsp; Building customer portal & loyalty modules; manual tickets ↓ 25 %.</li>
-    <li><strong>PhazeRo</strong> – Full-Stack Engineer (2019-2024) &nbsp;|&nbsp; Delivered 10+ production apps, mentored 4 juniors, owned CI/CD.</li>
-    <li><strong>World Web IT</strong> – Software Developer (2018-2019) &nbsp;|&nbsp; ERP + document management for 50-user retail chain.</li>
-  </ul>
-</section>
+<section id="career" class="section-padding">
+  <div class="container">
+    <h2 class="section-title">Career Highlights</h2>
 
-<section id="contact">
-  <h2>Let’s Connect</h2>
-  <p>Currently open to freelance & full-time opportunities. Drop me a message on LinkedIn or open an issue on GitHub.</p>
-  <a class="btn" href="https://www.linkedin.com/in/al-mu-tasim-al-hadhrami-675556115" target="_blank">Message on LinkedIn</a>
-  <a class="btn" style="margin-left:.5rem;" href="https://github.com/Almutasim" target="_blank">View GitHub</a>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="date">2024 – now</div>
+        <div class="content">
+          <h3>Al-Maha Petroleum<span> – IT Developer</span></h3>
+          <p>Leading customer-portal & loyalty modules → manual tickets <strong>↓ 25 %</strong>. Introduced Prometheus + Grafana dashboards; incident response <strong>&lt; 15 min</strong>.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="date">2019 – 2024</div>
+        <div class="content">
+          <h3>PhazeRo<span> – Full-Stack Engineer</span></h3>
+          <p>Delivered 10+ production apps (Ooredoo e-shop, Mundana, Akeed). Mentored 4 juniors, built CI/CD → build time <strong>↓ 30 %</strong>, test coverage <strong>↑ 20 %</strong>.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="date">2018 – 2019</div>
+        <div class="content">
+          <h3>World Web IT<span> – Software Developer</span></h3>
+          <p>Built ERP + document-management system for 50-user retail chain; inventory reconciliation <strong>2 days → 2 hrs</strong>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="contact" class="section-padding bg-gradient">
+  <div class="container contact-box">
+    <h2 class="section-title-light">Let’s Connect</h2>
+    <p class="center">Open to freelance & full-time opportunities. Drop a message or book a 15-min chat.</p>
+
+    <div class="contact-grid">
+      <!-- Card 1: quick links -->
+      <div class="contact-card">
+        <h3>Quick Links</h3>
+        <a href="https://www.linkedin.com/in/almutasim" target="_blank" rel="noopener" class="link-chip linkedin">
+          <svg width="20" height="20" fill="currentColor"><path d="M6.5 21.5h-5v-13h5v13zM4 6.5C2.5 6.5 1.5 5.5 1.5 4S2.5 1.5 4 1.5 6.5 2.5 6.5 4 5.5 6.5 4 6.5zM21.5 21.5h-5v-6.5c0-1.5-.5-2.5-2-2.5S13 14 13 15.5V21.5h-5v-13h5v2c1-1.5 2.5-2.5 4.5-2.5 3 0 5 2 5 6V21.5z"/></svg>
+          LinkedIn
+        </a>
+        <a href="www.linkedin.com/in/al-mu-tasim-al-hadhrami-675556115" target="_blank" rel="noopener" class="link-chip github">
+          <svg width="20" height="20" fill="currentColor"><path d="M10 0C4.5 0 0 4.5 0 10c0 4.4 2.9 8.2 6.9 9.5.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.4-1.1-1.1-1.4-1.1-1.4-1-.7 0-.7 0-.7 1.1 0 1.7 1.1 1.7 1.1 1 1.7 2.6 1.2 3.2.9.1-.7.4-1.2.7-1.5-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1.1-2.7-.1-.3-.5-1.3.1-2.7 0 0 .9-.3 2.8 1 .8-.2 1.7-.3 2.5-.3s1.7.1 2.5.3c1.9-1.3 2.8-1 2.8-1 .6 1.4.2 2.4.1 2.7.7.7 1.1 1.6 1.1 2.7 0 3.8-2.3 4.7-4.5 5 .4.3.8.9.8 1.8v2.6c0 .3.2.6.7.5C19.1 18.2 22 14.4 22 10 22 4.5 17.5 0 12 0z"/></svg>
+          GitHub
+        </a>
+        <a href="mailto:almutasim.hadhrami@gmail.com" class="link-chip email">
+          <svg width="20" height="20" fill="currentColor"><path d="M2 4h20l-10 8L2 4zm0 2.5l10 7.5 10-7.5v11.5H2V6.5z"/></svg>
+          Email
+        </a>
+      </div>
+
+      <!-- Card 2: mini-form (Netlify) -->
+      <div class="contact-card">
+        <h3>Or Send a Note</h3>
+        <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contact">
+          <p hidden><label>Don’t fill this out: <input name="bot-field"></label></p>
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Your Email" required>
+          <textarea name="message" placeholder="Tell me about your project..." rows="4" required></textarea>
+          <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
 </section>
 
 <footer>
